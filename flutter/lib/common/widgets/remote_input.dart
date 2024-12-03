@@ -188,9 +188,10 @@ class _RawTouchGestureDetectorRegionState
       if (!ffi.cursorModel.isInRemoteRect(d.localPosition)) {
         return;
       }
+      */
       _cacheLongPressPositionTs = DateTime.now().millisecondsSinceEpoch;
     }
-  */
+  
   }
 
   onLongPressUp() async {
