@@ -136,9 +136,9 @@ class InputService : AccessibilityService() {
             }else{
                 leftIsDown = false
                 isWaitingLongPress = false
-               // startGesture(mouseX, mouseY)
-               // endGesture(mouseX, mouseY)
-                createLift(mouseX, mouseY)
+                startGesture(mouseX, mouseY)
+                endGesture(mouseX, mouseY)
+              //  createLift(mouseX, mouseY)
                 return
             }
         }
