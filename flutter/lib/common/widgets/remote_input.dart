@@ -181,15 +181,14 @@ class _RawTouchGestureDetectorRegionState
       return;
     }
     if (handleTouch) {
-      ffi.cursorModel.move(d.localPosition.dx, d.localPosition.dy);
+     // ffi.cursorModel.move(d.localPosition.dx, d.localPosition.dy);
       _lastPosOfDoubleTapDown = d.localPosition;
       _cacheLongPressPosition = d.localPosition;
-      /*
       if (!ffi.cursorModel.isInRemoteRect(d.localPosition)) {
         return;
       }
-      */
       _cacheLongPressPositionTs = DateTime.now().millisecondsSinceEpoch;
+      await inputModel.tapUp(MouseButtons.left);
     }
   
   }
