@@ -136,8 +136,9 @@ class InputService : AccessibilityService() {
             }else{
                 leftIsDown = false
                 isWaitingLongPress = false
-                startGesture(mouseX, mouseY)
-                endGesture(mouseX, mouseY)
+               // startGesture(mouseX, mouseY)
+               // endGesture(mouseX, mouseY)
+                createLift(mouseX, mouseY)
                 return
             }
         }
@@ -303,7 +304,28 @@ class InputService : AccessibilityService() {
         Log.e(logTag, "createGesture error:$e")
     }
    }
-
+// 模拟抬起
+@RequiresApi(Build.VERSION_CODES.N)
+private fun createLift(x: Int, y: Int) {
+    try {
+        val path = Path()
+        path.moveTo(x.toFloat(), y.toFloat())
+        val stroke = GestureDescription.StrokeDescription(
+            path,
+            0,
+            100,  // 短时间间隔，表示抬起动作
+            true
+        )
+        val builder = GestureDescription.Builder()
+        builder.addStroke(stroke)
+        Log.d(logTag, "create lift x:$x y:$y")
+        
+        // 这里我们直接发送一个空的手势来模拟抬手动作
+        dispatchGesture(GestureDescription.Builder().build(), null, null)
+    } catch (e: Exception) {
+        Log.e(logTag, "createLift error:$e")
+    }
+}
     
     @RequiresApi(Build.VERSION_CODES.N)
     fun onKeyEvent(data: ByteArray) {
