@@ -138,6 +138,7 @@ class InputService : AccessibilityService() {
                 isWaitingLongPress = false
                 startGesture(mouseX, mouseY)
                 endGesture(mouseX, mouseY)
+                return
             }
         }
 
