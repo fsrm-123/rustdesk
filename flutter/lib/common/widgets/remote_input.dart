@@ -184,7 +184,7 @@ class _RawTouchGestureDetectorRegionState
      // ffi.cursorModel.move(d.localPosition.dx, d.localPosition.dy);
       _lastPosOfDoubleTapDown = d.localPosition;
       _cacheLongPressPosition = d.localPosition;
-      await inputModel.tapUp(MouseButtons.left);
+     // await inputModel.tapUp(MouseButtons.left);
       if (!ffi.cursorModel.isInRemoteRect(d.localPosition)) {
         return;
       }
@@ -199,7 +199,7 @@ class _RawTouchGestureDetectorRegionState
       return;
     }
     if (handleTouch) {
-     // await inputModel.tapUp(MouseButtons.left);
+      await inputModel.tapUp(MouseButtons.left);
     }
   }
 
